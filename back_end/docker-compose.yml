@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: ploggvn-backend
+    restart: always
+    ports:
+      - "58203:58203"
+    environment:
+      - PORT=58203
+      - NODE_ENV=production
+      - MONGO_URI=mongodb+srv://Ittd:jeAIZsOiU3vKVc4W@cluster0.vnlsk5d.mongodb.net/Ploggvn?retryWrites=true&w=majority
+    volumes:
+      - .:/app
+      - /app/node_modules
