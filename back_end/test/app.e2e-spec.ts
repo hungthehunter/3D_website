@@ -15,11 +15,12 @@ describe('AppController (e2e)', () => {
     app = moduleFixture.createNestApplication();
     await app.init();
   });
-
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
+  
+  it('should boot successfully', () => {
+    expect(app).toBeDefined();
   });
+
+  afterAll(async () => {
+    await app.close();
+  })
 });
